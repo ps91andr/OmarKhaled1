@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<!-- The lang and dir attributes will be updated by JavaScript -->
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عمر خالد | Omar Khaled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
+
+        :root {
+            /* Dark Theme (Default) */
+            --primary-color: #ff8c3b;
+            --secondary-color: #ff7e31;
+            --background-dark: #0d1117;
+            --background-light: #161b22;
+            --text-primary: #ffffff;
+            --text-secondary: #c9d1d9;
+            --border-color: #30363d;
+            --overlay-color-start: rgba(13, 17, 23, 1);
+            --overlay-color-end: rgba(13, 17, 23, 0.3);
+
+            /* Social Colors */
+            --youtube-color: #FF0000;
+            --facebook-color: #1877f2;
+            --twitter-color: #1DA1F2;
+            --tiktok-color: #FE2C55;
+            --instagram-color: #E1306C;
+            --threads-color: #888888; /* A neutral gray for Threads */
+            --snapchat-color: #FFFC00;
+            --whatsapp-color: #25D366;
+            --paypal-color: #00457C;
+            --email-color: #c71610;
+        }
+
+        /* Light Theme Variables */
+        body.light-theme {
+            --background-dark: #f0f2f5;
+            --background-light: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --overlay-color-start: rgba(240, 242, 245, 1);
+            --overlay-color-end: rgba(240, 242, 245, 0.3);
+            --threads-color: #000000; /* Threads icon is black, better for light mode */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+        
+        /* Smooth transitions for components */
+        .navbar.scrolled, .section-light, .profile-card, .stat-card, .social-card-new, footer, .language-dropdown,
+        .about-me blockquote, .timeline-item {
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+
+        body.lang-ar { font-family: 'Tajawal', Sakkal Majalla; }
+        body.lang-en, body.lang-de, body.lang-nl { font-family: 'Poppins', Sakkal Majalla; }
+        .cairo-font { font-family: 'Cairo', Sakkal Majalla; }
+        body.lang-en .cairo-font, body.lang-de .cairo-font, body.lang-nl .cairo-font { font-family: 'Poppins', Sakkal Majalla; font-weight: 900; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        .section-light { background-color: var(--background-light); }
+        .section-title { text-align: center; font-size: 2.8rem; font-weight: 900; margin-bottom: 60px; font-family: 'Cairo', Sakkal Majalla; }
+
+        /* --- Navbar --- */
+        .navbar {
+            padding: 25px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .navbar.scrolled {
+            position: fixed;
+            padding: 15px 0;
+            background-color: var(--background-dark);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--text-primary); text-decoration: none; font-family: 'Cairo', Sakkal Majalla; }
+        .nav-links { display: flex; align-items: center; list-style: none; gap: 40px; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary-color); }
+        .mobile-menu-btn { display: none; font-size: 1.8rem; background: none; border: none; color: var(--text-primary); cursor: pointer; }
+        
+<!--         /* Language & Theme Switchers */
+        .language-switcher { position: relative; cursor: pointer; padding-bottom: 20px; margin-bottom: -20px; }
+        .language-selected { color: var(--text-secondary); font-weight: 500; display: flex; align-items: center; gap: 8px; }
+        .language-selected:hover { color: var(--primary-color); }
+        .language-selected .fa-globe { font-size: 1.1rem; }
+        .language-dropdown { display: none; position: absolute; top: 100%; right: 0; background-color: var(--background-light); border: 1px solid var(--border-color); border-radius: 8px; list-style: none; padding: 10px 0; min-width: 120px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 1001; }
+        html[dir="ltr"] .language-dropdown { right: auto; left: 0; }
+        .language-switcher:hover .language-dropdown { display: block; }
+        .language-dropdown li a { display: block; padding: 8px 20px; color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; }
+        .language-dropdown li a:hover { background-color: var(--primary-color); color: var(--background-dark); } -->
+
+        .theme-switcher-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 5px;
+            transition: color 0.3s ease;
+        }
+        .theme-switcher-btn:hover { color: var(--primary-color); }
+
+        /* --- Hero Section --- */
+        .hero { min-height: 90vh; position: relative; display: flex; align-items: center; justify-content: flex-end; text-align: right; background: url('https://i.ibb.co/wFtFhNjp/5.jpg') no-repeat center center/cover; padding-top: 100px; padding-bottom: 2vh; }
+        html[dir="ltr"] .hero { justify-content: flex-start; text-align: left; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; transition: background 0.4s ease; }
+        html[dir="rtl"] .hero::before { background: linear-gradient(to left, var(--overlay-color-start) 25%, var(--overlay-color-end) 100%); }
+        html[dir="ltr"] .hero::before { background: linear-gradient(to right, var(--overlay-color-start) 25%, var(--overlay-color-end) 100%); }
+        .hero-content { position: relative; z-index: 2; }
+        .hero h1 { font-family: 'Cairo', Sakkal Majalla; font-size: 4.5rem; font-weight: 900; margin-bottom: 0.5rem; line-height: 1.2; }
+        .hero .subtitle { font-size: 1.5rem; font-weight: 400; color: var(--text-secondary); margin-bottom: 1rem; }
+        .hero .description { font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.7; }
+        .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--background-dark); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(255, 140, 59, 0.3); }
+        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(255, 140, 59, 0.4); }
+
+        /* --- About & Journey Section --- */
+        .about-journey-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; align-items: start; }
+        .about-me .profile-pic { width: 150px; height: 150px; border-radius: 50%; margin-bottom: 20px; border: 4px solid var(--border-color); object-fit: cover; }
+        .about-me blockquote { font-size: 1.5rem; font-family: 'Cairo', Sakkal Majalla; padding-right: 20px; margin-bottom: 25px; line-height: 1.6; }
+        html[dir="rtl"] .about-me blockquote { border-right: 4px solid var(--primary-color); }
+        html[dir="ltr"] .about-me blockquote { border-left: 4px solid var(--primary-color); padding-left: 20px; padding-right: 0; }
+        .about-me p { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); }
+        .journey-stats-section { display: flex; flex-direction: column; gap: 40px; }
+        .stats-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: var(--background-light); padding: 25px; border-radius: 12px; text-align: center; }
+        .stat-card .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--primary-color); }
+        .stat-card .stat-label { font-size: 1rem; color: var(--text-secondary); margin-top: 5px; }
+        .timeline { list-style: none; padding: 0; margin-top: 20px; }
+        .timeline-item { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--border-color); }
+        .timeline-item:last-child { border-bottom: none; }
+        .timeline-icon { width: 40px; height: 40px; border-radius: 50%; background-color: var(--primary-color); display: flex; align-items: center; justify-content: center; color: var(--background-dark); font-size: 1.2rem; flex-shrink: 0; }
+        html[dir="rtl"] .timeline-icon { margin-left: 20px; }
+        html[dir="ltr"] .timeline-icon { margin-right: 20px; }
+        .timeline-content .title { font-weight: 700; margin-bottom: 5px; }
+        .timeline-content .description { color: var(--text-secondary); font-size: 0.9rem; }
+        
+        /* --- Profiles Section (#digital-presence) --- */
+        .profiles-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .profile-card {
+            background-color: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease, border-color 0.4s ease;
+        }
+        .profile-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .profile-card .avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin: 0 auto 15px auto; border: 3px solid var(--border-color); }
+        .profile-card h2 { font-size: 1.2rem; margin-bottom: 8px; font-family: 'Cairo', Sakkal Majalla;}
+        .profile-card p { color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; flex-grow: 1; }
+        .profile-card .card-bio { /* Generic bio class */
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            flex-grow: 1;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* To respect newlines from QTextEdit */
+        }
+        .profile-card .card-bio a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .profile-card .card-bio a:hover {
+            text-decoration: underline;
+        }
+        .profile-card strong { color: var(--primary-color); font-size: 1.4rem; }
+        .profile-card .qr-code { position: absolute; top: 15px; right: 15px; opacity: 0; transition: opacity 0.3s ease; width: 60px; height: 60px; border-radius: 8px; }
+        html[dir="ltr"] .profile-card .qr-code { right: auto; left: 15px; }
+        .profile-card:hover .qr-code { opacity: 1; }
+        .profile-card > a:last-of-type, .profile-card .contact-buttons { margin-top: auto; }
+
+        .profile-card > a:not(.contact-buttons a) { font-size: 2rem; color: var(--text-secondary); position: absolute; bottom: 15px; right: 20px; transition: color 0.3s ease, transform 0.3s ease; }
+        html[dir="ltr"] .profile-card > a:not(.contact-buttons a) { right: auto; left: 20px; }
+        .profile-card > a:not(.contact-buttons a):hover { transform: scale(1.2); }
+        
+        .profile-card.youtube:hover > a:not(.contact-buttons a) { color: var(--youtube-color); }
+        .profile-card.facebook:hover > a:not(.contact-buttons a) { color: var(--facebook-color); }
+        .profile-card.twitter:hover > a:not(.contact-buttons a) { color: var(--twitter-color); }
+        .profile-card.tiktok:hover > a:not(.contact-buttons a) { color: var(--tiktok-color); }
+        .profile-card.instagram:hover > a:not(.contact-buttons a) { color: var(--instagram-color); }
+        .profile-card.threads:hover > a:not(.contact-buttons a) { color: var(--threads-color); }
+        .profile-card.snapchat:hover > a:not(.contact-buttons a) { color: var(--snapchat-color); }
+        .profile-card.email:hover > a:not(.contact-buttons a) { color: var(--email-color); }
+        
+        .total-card { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); color: #0d1117; }
+        .total-card h2, .total-card p { color: #161b22; }
+        .total-card strong { font-size: 3rem; color: white; }
+        .total-card .card-icon { font-size: 3rem; margin: 0 auto 15px auto; }
+        
+        .support a:not(.contact-buttons a) { background: var(--paypal-color); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; transition: background 0.3s; font-size: 1rem; position: static; }
+        .support a:not(.contact-buttons a):hover { background: #005ea6; transform: none; }
+        
+        .contact-buttons { display: flex; gap: 10px; justify-content: center; }
+        .contact-buttons a { background: var(--background-dark); color: var(--text-primary); padding: 10px 15px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.3s; font-size: 1rem; border: 1px solid var(--border-color); }
+        .contact-buttons a:hover { background: var(--border-color); }
+        .contact-buttons a .fab.fa-whatsapp { color: var(--whatsapp-color); }
+
+        /* --- Social Grid Section --- */
+        #social .container { text-align: center; }
+        .social-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 25px; margin-top: 40px; }
+        .social-card-new {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px 40px;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 200px;
+            border: 2px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.4s ease, box-shadow 0.3s ease, background-color 0.4s ease;
+        }
+        .social-icon-new { font-size: 3rem; color: var(--text-secondary); transition: color 0.3s ease; }
+        .social-card-new span { font-size: 1.2rem; font-weight: 600; font-family: 'Cairo', Sakkal Majalla; }
+        .social-card-new:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); }
+        .social-card-new.youtube:hover { border-color: var(--youtube-color); }
+        .social-card-new.youtube:hover .social-icon-new { color: var(--youtube-color); }
+        .social-card-new.instagram:hover { border-color: var(--instagram-color); }
+        .social-card-new.instagram:hover .social-icon-new { color: var(--instagram-color); }
+        .social-card-new.threads:hover { border-color: var(--threads-color); }
+        .social-card-new.threads:hover .social-icon-new { color: var(--threads-color); }
+        .social-card-new.facebook:hover { border-color: var(--facebook-color); }
+        .social-card-new.facebook:hover .social-icon-new { color: var(--facebook-color); }
+        .social-card-new.tiktok:hover { border-color: var(--tiktok-color); }
+        .social-card-new.tiktok:hover .social-icon-new { color: var(--tiktok-color); }
+        .social-card-new.twitter:hover { border-color: var(--twitter-color); }
+        .social-card-new.twitter:hover .social-icon-new { color: var(--twitter-color); }
+        .social-card-new.snapchat:hover { border-color: var(--snapchat-color); }
+        .social-card-new.snapchat:hover .social-icon-new { color: var(--snapchat-color); }
+        
+        /* --- Footer --- */
+        footer { padding: 25px 0; background-color: var(--background-light); border-top: 1px solid var(--border-color); }
+        .footer-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .footer-container p { color: var(--text-secondary); font-size: 0.9rem; }
+        
+        /* --- Works Section --- */
+        .work-card {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .work-card-thumbnail {
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-size: cover;
+            background-position: center;
+        }
+        .work-card-info {
+            padding: 20px;
+            text-align: right;
+        }
+        html[dir="ltr"] .work-card-info {
+            text-align: left;
+        }
+        .work-card-info h3 {
+            font-family: 'Cairo', Sakkal Majalla;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .work-card-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .about-journey-grid { grid-template-columns: 1fr; }
+            .hero { text-align: center; justify-content: center; }
+            .hero-content { padding: 0 20px; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+        @media (max-width: 768px) {
+            .stats-cards { grid-template-columns: 1fr; }
+            .footer-container { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .profiles-container { grid-template-columns: 1fr; }
+            .profile-card { padding: 20px; }
+            .hero h1 { font-size: 2.8rem; }
+            .social-card-new { width: 150px; padding: 25px 20px; }
+            .social-icon-new { font-size: 2.5rem; }
+        }
+		
+        #scroll-container {
+            display: none; /* إخفاء الحاوية بشكل افتراضي */
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            display: flex;
+            flex-direction: column; /* لجعل الأزرار مكدسة عمودياً */
+            gap: 10px; /* مسافة بين الزرين */
+        }
+        
+        /* تنسيق مشترك للزرين */
+        #scroll-container button {
+            border: none;
+            outline: none;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            width: 50px; /* تحديد عرض ثابت */
+            height: 50px; /* تحديد ارتفاع ثابت */
+            border-radius: 50%; /* شكل دائري */
+            font-size: 18px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #scroll-container button:hover {
+            background-color: var(--secondary-color);
+        }		
+    </style>
+</head>
+<body class="lang-ar">
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo cairo-font" data-key="logo_text">عمر خالد | Omar Khaled</a>
+            <ul class="nav-links">
+                <li><a href="#about-journey" data-key="nav_about">عني</a></li>
+                <li><a href="#about-journey" data-key="nav_journey"></a></li>
+                <li><a href="#digital-presence" data-key="nav_digital_presence">التواجد الرقمي</a></li>
+                 <li><a href="#works" data-key="nav_works">أعمالي</a></li>
+                <li><a href="#social" data-key="nav_contact">التواصل</a></li>
+<!--                 <li class="language-switcher">
+                    <div class="language-selected">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang">العربية</span>
+                    </div>
+                    <ul class="language-dropdown">
+                        <li><a href="#" lang="ar">العربية</a></li>
+                        <li><a href="#" lang="en">English</a></li>
+                        <li><a href="#" lang="de">Deutsch</a></li>
+                        <li><a href="#" lang="nl">Nederlands</a></li>
+                    </ul>
+                </li>
+                <li> -->
+                    <button class="theme-switcher-btn" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </li>
+            </ul>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    
+    <header class="hero">
+        <div class="container hero-content">
+            <h1 class="cairo-font" data-key="hero_main_title">عمر خالد | Omar Khaled</h1>
+            <p class="subtitle" data-key="hero_subtitle">منشد | مغني | ملحن | فنان موسيقي | يرفع صوته بالخير حول العالم
+</p>
+            <p class="description" data-key="hero_description">صوتي رسالة، ولحني دعوة. أسافر حيثُ يُحتاج إلى كلمة حق، وأنشودة تَهدي القلوب. همسي هو جواب على سؤال الروح، وغايتي أن أكون سببًا في إشراق نفس.
+</p>
+            <a href="https://www.youtube.com/@OmarK7alid" target="_blank" class="cta-button" data-key="hero_cta_button_text">اكتشف</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="about-journey">
+            <div class="container about-journey-grid">
+                <div class="about-me">
+                    <img src="https://i.ibb.co/RGbxWcNP/channels4-profile.jpg" alt="" class="profile-pic" data-key="about_pic_alt">
+                    <blockquote class="cairo-font" data-key="about_quote">""لستُ مجرد صاحب صوت.. أنا صاحب رسالة. رسالة تبحث عن قلوبٍ تئنّ تحت ثقل الحياة، فتهمس لها بأن الأمل موجود، وأنّ الغيمة مهما طالَت ستمضي، ويبقى النور هو الأصل.</blockquote>
+                                        <p data-key="about_p">عمر خالد ليس مجرد مغنٍّ عادي، بل هو رحالة بصوتٍ يحمل رسالة. يجوب العالم منذ سنوات، لا بحثاً عن الشهرة، بل سعياً وراء قلوب تبحث عن السلام. من خلال كلماته التي تلامس الروح وألحانه التي تبعث الأمل، يحاول أن يذكرنا جميعاً بأن الخير لا يزال موجوداً في هذا العالم، وبأن الفن الهادف يمكن أن يكون جسراً يربط بين الثقافات والأرواح. رسالته بسيطة لكنها عميقة: أن يكون صوتاً للجمال والإيمان في كل مكان.
+                    
+                    أغنّي من عمق المكان، لا من مسافاتٍ بعيدة. حنجرتي وطني، وكلماتي حدودي، ومستمعي هم جيراني في هذا العالم الواسع. من خلال صوتي الذي لا يحمل جواز سفر، أبني جسوراً بين القلوب تبدأ من مدينتي لتمتد إلى كل من يسمعني.
+                    
+                    لستُ مغنّاً عادياً يسعى للشهرة، بل صوتٌ يبحث عن السلام في كل نفسٍ تسمعه. بكلماتي التي تنبع من الأعماق، وألحاني التي تحمل حنين الروح، أحاول أن أذكّر كل من يصغي إليّ بأن الخير لا يزال ينبض في هذه الأرض، وأن الفنّ الهادف يمكنه أن يكون ملجأً نلجأ إليه فوق هوة اليأس، لنتقابل كبشرٍ تجمعنا أحلامٌ متشابهة.
+                    
+                    أختار كلماتي كالنحلة التي تختار أطيب الزهر، كل أنشودة تحمل قصة إنسان، وكل لحن يعبر عن وجع أو فرح عشناه معاً. ليس هدفي أن أكون النجم الأوحد في السماء، بل أن أكون شمعة تضيء في ظلام أحدهم، أو يداً تحمل قلماً لكتابة أغنية جديدة للحياة.
+                    
+                    أؤمن بأن الفن رسالة سامية، وأن المنصة التي أقف عليها ليست خشبة مسرح فحسب، بل هي منبر للقيم الإنسانية النبيلة. حين أغني، لا أبحث عن التصفيق، بل عن نظرة عين تشعر بأنها ليست وحيدة، أو ابتسامة طفل يجد في كلماتي ملعباً لأحلامه.
+                    
+                    هذه هي رحلتي.. لا تقاس بالأميال، بل بالقلوب التي التقت معي على وتر الأمل، والنفوس التي اكتشفت أن الخير لا يزال ينتصر في النهاية، وأن الفن الحقيقي هو ذلك الذي يخرج من القلب ليدخل إلى القلب.</p>
+                </div>
+                <div class="journey-stats-section">
+                    <div class="stats-cards">
+                        <div class="stat-card"><div class="stat-number" data-target="53,420">0</div><div class="stat-label" data-key="stat1_label">مشاهدات على اليوتوب</div></div>
+                        <div class="stat-card"><div class="stat-number" data-target="1370">0</div><div class="stat-label" data-key="stat2_label">مشتركين على اليوتوب</div></div>
+                        <div class="stat-card"><div class="stat-number" data-target="19">0</div><div class="stat-label" data-key="stat3_label">فيدوهات على اليوتيوب</div></div>
+                        <div class="stat-card"><div class="stat-number" data-target="100">0</div><div class="stat-label" data-key="stat4_label">واكثر من الاعمال والمشاركات</div></div>
+                    </div>
+                    <ul class="timeline">
+                        
+                        
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fas fa-flag"></i></div>
+                            <div class="timeline-content">
+                                <div class="title" data-key="timeline1_title">الهدف العالمي: أن يكون صوتي جسرًا للخير، يربط القلوب across cultures and borders</div>
+                                <div class="description" data-key="timeline1_desc">أن أذكّر العالم، عبر الكلمة واللحن، بأننا شركاء في إنسانيتنا، وأن الأمل والإيمان هما أقوى ما نملك.
+التفصيل: السعي لخلق مساحة فنية روحية تذوب فيها الحدود، حيث يصبح الفن لغة عالمية للتعريف بالجمال والقيم الإنسانية والأخلاقية التي دعا إليها الإسلام، وزرع بذور الأمل والتفاؤل.</div>
+                            </div>
+                        </li>
+                        
+                        
+                        
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fas fa-flag"></i></div>
+                            <div class="timeline-content">
+                                <div class="title" data-key="timeline2_title">الوصول إلى القلوب قبل الأرقام أن أكون صوتاً يلامس الروح</div>
+                                <div class="description" data-key="timeline2_desc">أن أغني في مكان صغير ومليء بالطاقة، حيث أرى الدموع في عيون المستمعين
+أن أتلقى رسالة من شخص يقول لي: "أنشودك منعتني من اليأس"
+أن أغني في شارع عشوائي وأرى الأطفال يبتسمون ويرقصون بكلماتي
+
+</div>
+                            </div>
+                        </li>
+                        
+                        
+                        
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fas fa-flag"></i></div>
+                            <div class="timeline-content">
+                                <div class="title" data-key="timeline3_title">رحلتي هي قصتي أن أترك أثراً جميلاً حيثما مررت</div>
+                                <div class="description" data-key="timeline3_desc">أن أغني عند غروب الشمس على شاطئ قرية نائية
+أن أتعلم أغنية شعبية من كل بلد أزوره وأدمجها في فني
+أن ألتقي بكبار السن وأسجل قصصهم وأحولها إلى كلمات أغاني
+
+</div>
+                            </div>
+                        </li>
+                        
+                        
+                        
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fas fa-flag"></i></div>
+                            <div class="timeline-content">
+                                <div class="title" data-key="timeline4_title">الفن هو حياتي  أن أعيش الفن بحقيقته</div>
+                                <div class="description" data-key="timeline4_desc">أن أغني بدون ميكروفون في جبل عالٍ حيث الصدى هو رفيقي الوحيد
+أن أسجل أنشودة وأنا جالس تحت شجرة زيتون عمرها مئات السنين
+أن أترك نفسي للّحظة وأغني من القلب دون تخطيط مسبق
+
+</div>
+                            </div>
+                        </li>
+                        
+                        
+                        
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fas fa-flag"></i></div>
+                            <div class="timeline-content">
+                                <div class="title" data-key="timeline5_title">أن يبقى صوتي في الذاكرة أن أكون ذكرى جميلة في قلوب الناس</div>
+                                <div class="description" data-key="timeline5_desc">أن يغني طفل كلماتي وهو يلعب في الحديقة
+أن أسمع غريباً يهمس بكلمات أنشودتي في مكان عام
+أن أكون سبباً في لم شمل عائلة أو إصلاح علاقة through my music
+
+</div>
+                            </div>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-light" id="digital-presence">
+            <div class="container">
+                <h2 class="section-title cairo-font" data-key="digital_presence_section_title">التواجد الرقمي</h2>
+                <div class="profiles-container">
+                    
+                    <div class="profile-card total-card">
+                        <div class="card-icon"><i class="fas fa-hashtag"></i></div>
+                        <h2 data-key="total_card_title">الاجماليات</h2>
+                        <p><strong class="counter" data-target="39737">0</strong><br><span data-key="total_card_subtitle">مشترك ومتابع</span></p>
+                    </div>
+
+                    <div class="profile-card youtube">
+                        <img class="avatar" src="https://i.ibb.co/RGbxWcNP/channels4-profile.jpg" alt="YouTube Profile">
+                        <h2 data-key="platform_youtube">قناة اليوتيوب</h2>
+                        <div class="card-bio" data-key="yt_main_desc">القناة الرسمية للفنان عمر خالد،
+يسعدني اشتراككم في القناة<br><a href=""></a><br><a href=""></a></div>
+                        <p><strong class="counter" data-target="1370">0</strong> <span data-key="stat_subscribers">مشترك</span><br><strong class="counter" data-target="19">0</strong> <span data-key="stat_videos">فيديو</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.youtube.com/@OmarK7alid" alt="YouTube QR Code">
+                        <a href="https://www.youtube.com/@OmarK7alid" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    
+<!--                      <div class="profile-card youtube">
+                        <img class="avatar" src="" alt="YouTube Vlogs Profile">
+                        <h2 data-key="platform_youtube_vlogs"></h2>
+                        <div class="card-bio" data-key="yt_vlogs_desc"><br><a href=""></a><br><a href=""></a></div>
+                        <p><strong class="counter" data-target="">0</strong> <span data-key="stat_views">مشاهدة</span><br><strong class="counter" data-target="">0</strong> <span data-key="stat_subscribers">مشترك</span><br><strong class="counter" data-target="">0</strong> <span data-key="stat_videos">فيديو</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" alt="YouTube Vlogs QR Code">
+                        <a href="" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div> -->
+
+                    <div class="profile-card facebook">
+                        <img class="avatar" src="https://i.ibb.co/1JztLdVc/face.jpg" alt="Facebook Profile">
+                        <h2 data-key="platform_facebook">فيسبوك</h2>
+                        <div class="card-bio" data-key="fb_desc">خانه الأصدقاء ممتلئه يشرفني متابعتك 💛💛💛
+@omark7
+Doaa💍❤️<br><a href=""></a><br><a href=""></a></div>
+                        <p><strong class="counter" data-target="13000">0</strong> <span data-key="stat_followers">متابع</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.facebook.com/OmarK7alid" alt="Facebook QR Code">
+                        <a href="https://www.facebook.com/OmarK7alid" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+
+                    <div class="profile-card twitter">
+                        <img class="avatar" src="https://i.ibb.co/1JztLdVc/face.jpg" alt="Twitter Profile">
+                        <h2 data-key="platform_twitter">تويتر ( X )</h2>
+                        <div class="card-bio" data-key="x_desc">عمر خالد / فنان موسيقي ✌️💛<br><a href=""></a><br><a href=""></a></div>
+                        <p><strong class="counter" data-target="47">0</strong> <span data-key="stat_followers">متابع</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://x.com/OmarK7alid" alt="Twitter QR Code">
+                        <a href="https://x.com/OmarK7alid" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+
+                    <div class="profile-card tiktok">
+                        <img class="avatar" src="https://i.ibb.co/1JztLdVc/face.jpg" alt="TikTok Profile">
+                        <h2 data-key="platform_tiktok">تيك توك</h2>
+                        <div class="card-bio" data-key="tiktok_desc">فنان وملحن 🩶🤞<br><a href=""></a><br><a href=""></a></div>
+                        <p><strong class="counter" data-target="6350">0</strong> <span data-key="stat_followers">متابع</span><br><strong class="counter" data-target="12100">0</strong> <span data-key="stat_likes">اعجاب</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.tiktok.com/@omar_k7alid" alt="TikTok QR Code">
+                        <a href="https://www.tiktok.com/@omar_k7alid" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+
+                    <div class="profile-card instagram">
+                        <img class="avatar" src="https://i.ibb.co/1JztLdVc/face.jpg" alt="Instagram Profile">
+                        <h2 data-key="platform_instagram">انستغرام</h2>
+                        <div class="card-bio" data-key="insta_desc">OmAr KhAlid
+موسيقي/فرقة موسيقية
+عمر خالد 🎤🎶🎵
+فنان وملحن 🎙️🎼
+@do2_2017 ❤️❤️
+للتواصل والحجز والاستفسار / 773168484
+
+<br><a href=""></a><br><a href=""></a></div>
+                        <p><strong class="counter" data-target="9673">0</strong> <span data-key="stat_followers">متابع</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.instagram.com/omark7alid" alt="Instagram QR Code">
+                        <a href="https://www.instagram.com/omark7alid" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                    <div class="profile-card threads">
+                        <img class="avatar" src="https://i.ibb.co/C5yXn1gP/thrd.jpg" alt="Threads Profile">
+                        <h2 data-key="platform_threads">ثريدز</h2>
+                        <div class="card-bio" data-key="threads_desc">omark7alid
+💛💛💛 يشرفني متابعتك 💛
+
+<br><a href=""></a><br><a href=""></a></div>
+                        <p><strong class="counter" data-target="897">0</strong> <span data-key="stat_followers">متابع</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.threads.com/@omark7alid" alt="Threads QR Code">
+                        <a href="https://www.threads.com/@omark7alid" target="_blank"><i class="fab fa-threads"></i></a>
+                    </div>
+
+                    <div class="profile-card snapchat">
+                        <img class="avatar" src="https://i.ibb.co/j9PyWJVg/1.jpg" alt="Snapchat Profile">
+                        <h2 data-key="platform_snapchat">سناب شات</h2>
+                        <div class="card-bio" data-key="snap_desc">عمر خالد / فنان موسيقي ✌️💛
+<br><a href=""></a><br><a href=""></a></div>
+                        <p><strong class="counter" data-target="300">0</strong> <span data-key="stat_followers">متابع</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.snapchat.com/@omark7a" alt="Snapchat QR Code">
+                        <a href="https://www.snapchat.com/@omark7a" target="_blank"><i class="fab fa-snapchat"></i></a>
+                    </div>
+                    
+                    <div class="profile-card whatsapp">
+                        <img class="avatar" src="https://i.ibb.co/wFtFhNjp/5.jpg" alt="Whatsapp Profile">
+                        <h2 data-key="platform_whatsapp"></h2>
+                        <div class="card-bio" data-key="whatsapp_desc">للتواصل والحجز والاستفسار</div>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://api.whatsapp.com/send/?phone=%2B967773168484&text&type=phone_number&app_absent=0" alt="Whatsapp QR Code">
+                        <a href="https://api.whatsapp.com/send/?phone=%2B967773168484&text&type=phone_number&app_absent=0" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+
+                    <div class="profile-card support">
+                        <img class="avatar" src="https://i.ibb.co/wFtFhNjp/5.jpg" alt="Support Profile">
+                        <h2 data-key="support_title">الدعم المادي</h2>
+                        <p data-key="support_desc">للمساعدة على الاستمرار في تقديم محتوى هادف ومميز.</p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.paypal.com/paypalme/" alt="PayPal QR Code">
+                        <a href="https://www.paypal.com/paypalme/" target="_blank" data-key="support_cta">ادعم عبر PayPal</a>
+                    </div>
+
+                    <div class="profile-card contact">
+                        <img class="avatar" src="https://i.ibb.co/7Jj8Kqct/2.jpg" alt="Contact Profile">
+                        <h2 data-key="contact_card_title">التواصل</h2>
+                        <p data-key="contact_desc">للتواصل والحجز والاستفسار<br><strong style="direction: ltr; display: inline-block; font-size: 1.2rem; letter-spacing: 1px;">+967773168484</strong></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/+967773168484" alt="WhatsApp QR Code">
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/+967773168484" target="_blank"><i class="fab fa-whatsapp"></i> <span data-key="contact_button_whatsapp">واتساب</span></a>
+                            <a href="tel:+967773168484" target="_blank"><i class="fas fa-phone"></i> <span data-key="contact_button_call">اتصال</span></a>
+                        </div>
+                    </div>
+
+                    <div class="profile-card email">
+                        <img class="avatar" src="https://i.ibb.co/wFtFhNjp/5.jpg" alt="Email Profile">
+                        <h2 data-key="email_card_title">البريد الالكتروني</h2>
+                        <p data-key="email_desc"><br><strong></strong></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=mailto:" alt="Email QR Code">
+                        <a href="mailto:" target="_blank"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="works">
+            <div class="container">
+                <h2 class="section-title cairo-font" data-key="works_section_title">بعض أعمالي</h2>
+                <div class="profiles-container">
+                    
+                    <a href="https://www.youtube.com/watch?v=r8eGtCydRJg" target="_blank" class="work-card">
+                        <div class="work-card-thumbnail" style="background-image: url('https://i.ibb.co/1fDLF0SC/maxresdefault.jpg');"></div>
+                        <div class="work-card-info">
+                            <h3>أقلك شي وتوعدني | عمر خالد (cover)</h3>
+                            <p>2021 - 24 الف واكثر مشاهدة</p>
+								
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=ZvKdnV5or54" target="_blank" class="work-card">
+                        <div class="work-card-thumbnail" style="background-image: url('https://i.ibb.co/Sw4WgXg0/maxresdefault-1.jpg');"></div>
+                        <div class="work-card-info">
+                            <h3>أول غرام - عمر خالد | Awal Gharam</h3>
+                            <p>2023 - 2.2 الف واكثر مشاهدة</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=y0xUArBNj-8" target="_blank" class="work-card">
+                        <div class="work-card-thumbnail" style="background-image: url('https://i.ibb.co/yw9HP24/maxresdefault-2.jpg');"></div>
+                        <div class="work-card-info">
+                            <h3>عمر خالد - أجمل عطايا (حصرياً)</h3>
+                            <p>2026 - 550 واكثر مشاهدة</p>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+
+
+
+<!--         <section class="section" id="works">
+            <div class="container">
+                <h2 class="section-title cairo-font" data-key="works_section_title">بعض أعمالي</h2>
+                <div class="profiles-container">
+                    
+                    <a href="https://www.youtube.com/watch?v=y0xUArBNj-8" target="_blank" class="work-card">
+                        <div class="work-card-thumbnail" style="background-image: url('https://i.ibb.co/yw9HP24/maxresdefault-2.jpg');"></div>
+                        <div class="work-card-info">
+                            <h3>عمر خالد - أجمل عطايا (حصرياً)</h3>
+                            <p>2024</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=ZvKdnV5or54" target="_blank" class="work-card">
+                        <div class="work-card-thumbnail" style="background-image: url('https://i.ibb.co/Sw4WgXg0/maxresdefault-1.jpg');"></div>
+                        <div class="work-card-info">
+                            <h3>أول غرام - عمر خالد | Awal Gharam</h3>
+                            <p>2022</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=r8eGtCydRJg" target="_blank" class="work-card">
+                        <div class="work-card-thumbnail" style="background-image: url('https://i.ibb.co/1fDLF0SC/maxresdefault.jpg');"></div>
+                        <div class="work-card-info">
+                            <h3>أقلك شي وتوعدني | عمر خالد (cover)</h3>
+                            <p>2021</p>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </section> -->
+
+
+        <section class="section" id="social">
+            <div class="container">
+               <h2 class="section-title cairo-font" data-key="social_section_title">تابع الفنان</h2>
+               <div class="social-grid">
+                   <a href="https://www.youtube.com/@OmarK7alid" target="_blank" class="social-card-new youtube"><i class="fab fa-youtube social-icon-new"></i><span class="cairo-font" data-key="platform_youtube">قناة اليوتيوب</span></a>
+                   <!-- <a href="" target="_blank" class="social-card-new youtube"><i class="fab fa-youtube social-icon-new"></i><span class="cairo-font" data-key="platform_youtube_vlogs"></span></a> -->
+                   <a href="https://www.instagram.com/omark7alid" target="_blank" class="social-card-new instagram"><i class="fab fa-instagram social-icon-new"></i><span class="cairo-font" data-key="platform_instagram">انستغرام</span></a>
+                   <a href="https://www.threads.com/@omark7alid" target="_blank" class="social-card-new threads"><i class="fab fa-threads social-icon-new"></i><span class="cairo-font" data-key="platform_threads">ثريدز</span></a>
+                   <a href="https://www.facebook.com/OmarK7alid" target="_blank" class="social-card-new facebook"><i class="fab fa-facebook-f social-icon-new"></i><span class="cairo-font" data-key="platform_facebook">فيسبوك</span></a>
+                   <a href="https://www.tiktok.com/@omar_k7alid" target="_blank" class="social-card-new tiktok"><i class="fab fa-tiktok social-icon-new"></i><span class="cairo-font" data-key="platform_tiktok">تيك توك</span></a>
+                   <a href="https://x.com/OmarK7alid" target="_blank" class="social-card-new twitter"><i class="fab fa-twitter social-icon-new"></i><span class="cairo-font" data-key="platform_twitter">تويتر ( X )</span></a>
+                   <a href="https://www.snapchat.com/@omark7a" target="_blank" class="social-card-new snapchat"><i class="fab fa-snapchat social-icon-new"></i><span class="cairo-font" data-key="platform_snapchat">سناب شات</span></a>
+               </div>
+            </div>
+       </section>
+        
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <p data-key="footer_copyright">[2026] عمر خالد. جميع الحقوق محفوظة.</p>
+            <p><span data-key="footer_contact_prefix"></span> </p>
+            <p data-key="footer_tagline">عمر خالد | Omar Khaled منشد | مغني | ملحن | فنان موسيقي | يرفع صوته بالخير حول العالم
+</p>
+            <p data-key="footer_bio">فنان يمني | صوت عالمي</p>
+        </div>
+    </footer>
+    <!-- ===== أضف الحاوية الجديدة هنا ===== -->
+    <div id="scroll-container">
+        <button onclick="topFunction()" id="scrollTopBtn" title="العودة للأعلى" aria-label="العودة للأعلى">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button onclick="bottomFunction()" id="scrollDownBtn" title="النزول للأسفل" aria-label="النزول للأسفل">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <script>
+        // Polyfill for "replaceAll" if needed for older browsers
+        if (!String.prototype.replaceAll) {
+            String.prototype.replaceAll = function(str, newStr){
+                if (Object.prototype.toString.call(str).toLowerCase() === '[object regexp]') {
+                    return this.replace(str, newStr);
+                }
+                return this.replace(new RegExp(str, 'g'), newStr);
+            };
+        }
+
+        <!-- const translations = {"ar": {"about_p": "\"\u0639\u0645\u0631 \u062e\u0627\u0644\u062f \u0644\u064a\u0633 \u0645\u062c\u0631\u062f \u0645\u063a\u0646\u064d\u0651 \u0639\u0627\u062f\u064a\u060c \u0628\u0644 \u0647\u0648 \u0631\u062d\u0627\u0644\u0629 \u0628\u0635\u0648\u062a\u064d \u064a\u062d\u0645\u0644 \u0631\u0633\u0627\u0644\u0629. \u064a\u062c\u0648\u0628 \u0627\u0644\u0639\u0627\u0644\u0645 \u0645\u0646\u0630 \u0633\u0646\u0648\u0627\u062a\u060c \u0644\u0627 \u0628\u062d\u062b\u0627\u064b \u0639\u0646 \u0627\u0644\u0634\u0647\u0631\u0629\u060c \u0628\u0644 \u0633\u0639\u064a\u0627\u064b \u0648\u0631\u0627\u0621 \u0642\u0644\u0648\u0628 \u062a\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0633\u0644\u0627\u0645. \u0645\u0646 \u062e\u0644\u0627\u0644 \u0643\u0644\u0645\u0627\u062a\u0647 \u0627\u0644\u062a\u064a \u062a\u0644\u0627\u0645\u0633 \u0627\u0644\u0631\u0648\u062d \u0648\u0623\u0644\u062d\u0627\u0646\u0647 \u0627\u0644\u062a\u064a \u062a\u0628\u0639\u062b \u0627\u0644\u0623\u0645\u0644\u060c \u064a\u062d\u0627\u0648\u0644 \u0623\u0646 \u064a\u0630\u0643\u0631\u0646\u0627 \u062c\u0645\u064a\u0639\u0627\u064b \u0628\u0623\u0646 \u0627\u0644\u062e\u064a\u0631 \u0644\u0627 \u064a\u0632\u0627\u0644 \u0645\u0648\u062c\u0648\u062f\u0627\u064b \u0641\u064a \u0647\u0630\u0627 \u0627\u0644\u0639\u0627\u0644\u0645\u060c \u0648\u0628\u0623\u0646 \u0627\u0644\u0641\u0646 \u0627\u0644\u0647\u0627\u062f\u0641 \u064a\u0645\u0643\u0646 \u0623\u0646 \u064a\u0643\u0648\u0646 \u062c\u0633\u0631\u0627\u064b \u064a\u0631\u0628\u0637 \u0628\u064a\u0646 \u0627\u0644\u062b\u0642\u0627\u0641\u0627\u062a \u0648\u0627\u0644\u0623\u0631\u0648\u0627\u062d. \u0631\u0633\u0627\u0644\u062a\u0647 \u0628\u0633\u064a\u0637\u0629 \u0644\u0643\u0646\u0647\u0627 \u0639\u0645\u064a\u0642\u0629: \u0623\u0646 \u064a\u0643\u0648\u0646 \u0635\u0648\u062a\u0627\u064b \u0644\u0644\u062c\u0645\u0627\u0644 \u0648\u0627\u0644\u0625\u064a\u0645\u0627\u0646 \u0641\u064a \u0643\u0644 \u0645\u0643\u0627\u0646.\"", "about_pic_alt": "", "about_quote": "\"\u0644\u0633\u062a\u064f \u0645\u062c\u0631\u062f \u0635\u0627\u062d\u0628 \u0635\u0648\u062a.. \u0623\u0646\u0627 \u0635\u0627\u062d\u0628 \u0631\u0633\u0627\u0644\u0629. \u0631\u0633\u0627\u0644\u0629 \u062a\u0628\u062d\u062b \u0639\u0646 \u0642\u0644\u0648\u0628\u064d \u062a\u0626\u0646\u0651 \u062a\u062d\u062a \u062b\u0642\u0644 \u0627\u0644\u062d\u064a\u0627\u0629\u060c \u0641\u062a\u0647\u0645\u0633 \u0644\u0647\u0627 \u0628\u0623\u0646 \u0627\u0644\u0623\u0645\u0644 \u0645\u0648\u062c\u0648\u062f", "contact_button_call": "\u0627\u062a\u0635\u0627\u0644", "contact_button_whatsapp": "\u0648\u0627\u062a\u0633\u0627\u0628", "contact_card_title": "\u0627\u0644\u062a\u0648\u0627\u0635\u0644", "contact_desc": "\u0644\u0644\u062a\u0648\u0627\u0635\u0644 \u0648\u0627\u0644\u062d\u062c\u0632 \u0648\u0627\u0644\u0627\u0633\u062a\u0641\u0633\u0627\u0631", "digital_presence_section_title": "\u0627\u0644\u062a\u0648\u0627\u062c\u062f \u0627\u0644\u0631\u0642\u0645\u064a", "email_card_title": "\u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0627\u0644\u0643\u062a\u0631\u0648\u0646\u064a", "email_desc": "", "fb_desc": "\u062e\u0627\u0646\u0647 \u0627\u0644\u0623\u0635\u062f\u0642\u0627\u0621 \u0645\u0645\u062a\u0644\u0626\u0647 \u064a\u0634\u0631\u0641\u0646\u064a \u0645\u062a\u0627\u0628\u0639\u062a\u0643 \ud83d\udc9b\ud83d\udc9b\ud83d\udc9b\n@omark7\nDoaa\ud83d\udc8d\u2764\ufe0f", "fb_desc2": "", "fb_desc3": "", "footer_bio": "\u0641\u0646\u0627\u0646 \u064a\u0645\u0646\u064a | \u0635\u0648\u062a \u0639\u0627\u0644\u0645\u064a", "footer_contact_prefix": "", "footer_copyright": "[2026] \u0639\u0645\u0631 \u062e\u0627\u0644\u062f. \u062c\u0645\u064a\u0639 \u0627\u0644\u062d\u0642\u0648\u0642 \u0645\u062d\u0641\u0648\u0638\u0629.", "footer_tagline": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled \u0645\u0646\u0634\u062f | \u0645\u063a\u0646\u064a | \u0645\u0644\u062d\u0646 | \u0641\u0646\u0627\u0646 \u0645\u0648\u0633\u064a\u0642\u064a | \u064a\u0631\u0641\u0639 \u0635\u0648\u062a\u0647 \u0628\u0627\u0644\u062e\u064a\u0631 \u062d\u0648\u0644 \u0627\u0644\u0639\u0627\u0644\u0645\n", "hero_cta_button_text": "\u0627\u0643\u062a\u0634\u0641", "hero_description": "\u0635\u0648\u062a\u064a \u0631\u0633\u0627\u0644\u0629\u060c \u0648\u0644\u062d\u0646\u064a \u062f\u0639\u0648\u0629. \u0623\u0633\u0627\u0641\u0631 \u062d\u064a\u062b\u064f \u064a\u064f\u062d\u062a\u0627\u062c \u0625\u0644\u0649 \u0643\u0644\u0645\u0629 \u062d\u0642\u060c \u0648\u0623\u0646\u0634\u0648\u062f\u0629 \u062a\u064e\u0647\u062f\u064a \u0627\u0644\u0642\u0644\u0648\u0628. \u0647\u0645\u0633\u064a \u0647\u0648 \u062c\u0648\u0627\u0628 \u0639\u0644\u0649 \u0633\u0624\u0627\u0644 \u0627\u0644\u0631\u0648\u062d\u060c \u0648\u063a\u0627\u064a\u062a\u064a \u0623\u0646 \u0623\u0643\u0648\u0646 \u0633\u0628\u0628\u064b\u0627 \u0641\u064a \u0625\u0634\u0631\u0627\u0642 \u0646\u0641\u0633.\n", "hero_main_title": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "hero_subtitle": "\u0645\u0646\u0634\u062f | \u0645\u063a\u0646\u064a | \u0645\u0644\u062d\u0646 | \u0641\u0646\u0627\u0646 \u0645\u0648\u0633\u064a\u0642\u064a | \u064a\u0631\u0641\u0639 \u0635\u0648\u062a\u0647 \u0628\u0627\u0644\u062e\u064a\u0631 \u062d\u0648\u0644 \u0627\u0644\u0639\u0627\u0644\u0645\n", "insta_desc": "OmAr KhAlid\n\u0645\u0648\u0633\u064a\u0642\u064a/\u0641\u0631\u0642\u0629 \u0645\u0648\u0633\u064a\u0642\u064a\u0629\n\u0639\u0645\u0631 \u062e\u0627\u0644\u062f \ud83c\udfa4\ud83c\udfb6\ud83c\udfb5\n\u0641\u0646\u0627\u0646 \u0648\u0645\u0644\u062d\u0646 \ud83c\udf99\ufe0f\ud83c\udfbc\n@do2_2017 \u2764\ufe0f\u2764\ufe0f\n\u0644\u0644\u062a\u0648\u0627\u0635\u0644 \u0648\u0627\u0644\u062d\u062c\u0632 \u0648\u0627\u0644\u0627\u0633\u062a\u0641\u0633\u0627\u0631 / 773168484\n\n", "insta_desc2": "", "insta_desc3": "", "logo_text": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "nav_about": "\u0639\u0646\u064a", "nav_contact": "\u0627\u0644\u062a\u0648\u0627\u0635\u0644", "nav_digital_presence": "\u0627\u0644\u062a\u0648\u0627\u062c\u062f \u0627\u0644\u0631\u0642\u0645\u064a", "nav_journey": "", "page_title": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "platform_facebook": "\u0641\u064a\u0633\u0628\u0648\u0643", "platform_instagram": "\u0627\u0646\u0633\u062a\u063a\u0631\u0627\u0645", "platform_snapchat": "\u0633\u0646\u0627\u0628 \u0634\u0627\u062a", "platform_threads": "\u062b\u0631\u064a\u062f\u0632", "platform_tiktok": "\u062a\u064a\u0643 \u062a\u0648\u0643", "platform_twitter": "\u062a\u0648\u064a\u062a\u0631 ( X )", "platform_whatsapp": "", "platform_youtube": "\u0642\u0646\u0627\u0629 \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628", "platform_youtube_vlogs": "", "snap_desc": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f / \u0641\u0646\u0627\u0646 \u0645\u0648\u0633\u064a\u0642\u064a \u270c\ufe0f\ud83d\udc9b\n", "snap_desc2": "", "snap_desc3": "", "social_section_title": "\u062a\u0627\u0628\u0639 \u0627\u0644\u0641\u0646\u0627\u0646", "stat1_label": "\u0645\u0634\u0627\u0647\u062f\u0627\u062a", "stat2_label": "\u0645\u0634\u062a\u0631\u0643\u064a\u0646", "stat3_label": "\u0641\u064a\u062f\u0648\u0647\u0627\u062a", "stat4_label": "", "stat_followers": "\u0645\u062a\u0627\u0628\u0639", "stat_likes": "\u0627\u0639\u062c\u0627\u0628", "stat_subscribers": "\u0645\u0634\u062a\u0631\u0643", "stat_videos": "\u0641\u064a\u062f\u064a\u0648", "stat_views": "\u0645\u0634\u0627\u0647\u062f\u0629", "support_card_button": "\u0644\u0644\u062f\u0639\u0645", "support_card_title": "\u0644\u0644\u062f\u0639\u0645", "support_desc": "", "threads_desc": "omark7alid\n\ud83d\udc9b\ud83d\udc9b\ud83d\udc9b \u064a\u0634\u0631\u0641\u0646\u064a \u0645\u062a\u0627\u0628\u0639\u062a\u0643 \ud83d\udc9b\n\n", "threads_desc2": "", "threads_desc3": "", "tiktok_desc": "\u0641\u0646\u0627\u0646 \u0648\u0645\u0644\u062d\u0646 \ud83e\ude76\ud83e\udd1e", "tiktok_desc2": "", "tiktok_desc3": "", "timeline1_desc": "\u0623\u0646 \u0623\u0630\u0643\u0651\u0631 \u0627\u0644\u0639\u0627\u0644\u0645\u060c \u0639\u0628\u0631 \u0627\u0644\u0643\u0644\u0645\u0629 \u0648\u0627\u0644\u0644\u062d\u0646\u060c \u0628\u0623\u0646\u0646\u0627 \u0634\u0631\u0643\u0627\u0621 \u0641\u064a \u0625\u0646\u0633\u0627\u0646\u064a\u062a\u0646\u0627\u060c \u0648\u0623\u0646 \u0627\u0644\u0623\u0645\u0644 \u0648\u0627\u0644\u0625\u064a\u0645\u0627\u0646 \u0647\u0645\u0627 \u0623\u0642\u0648\u0649 \u0645\u0627 \u0646\u0645\u0644\u0643.\n\u0627\u0644\u062a\u0641\u0635\u064a\u0644: \u0627\u0644\u0633\u0639\u064a \u0644\u062e\u0644\u0642 \u0645\u0633\u0627\u062d\u0629 \u0641\u0646\u064a\u0629 \u0631\u0648\u062d\u064a\u0629 \u062a\u0630\u0648\u0628 \u0641\u064a\u0647\u0627 \u0627\u0644\u062d\u062f\u0648\u062f\u060c \u062d\u064a\u062b \u064a\u0635\u0628\u062d \u0627\u0644\u0641\u0646 \u0644\u063a\u0629 \u0639\u0627\u0644\u0645\u064a\u0629 \u0644\u0644\u062a\u0639\u0631\u064a\u0641 \u0628\u0627\u0644\u062c\u0645\u0627\u0644 \u0648\u0627\u0644\u0642\u064a\u0645 \u0627\u0644\u0625\u0646\u0633\u0627\u064a\u0629 \u0648\u0627\u0644\u0623\u062e\u0644\u0627\u0642\u064a\u0629 \u0627\u0644\u062a\u064a \u062f\u0639\u0627 \u0625\u0644\u064a\u0647\u0627 \u0627\u0644\u0625\u0633\u0644\u0627\u0645\u060c \u0648\u0632\u0631\u0639 \u0628\u0630\u0648\u0631 \u0627\u0644\u0623\u0645\u0644 \u0648\u0627\u0644\u062a\u0641\u0627\u0624\u0644.", "timeline1_title": "\u0627\u0644\u0647\u062f\u0641 \u0627\u0644\u0639\u0627\u0644\u0645\u064a: \u0623\u0646 \u064a\u0643\u0648\u0646 \u0635\u0648\u062a\u064a \u062c\u0633\u0631\u064b\u0627 \u0644\u0644\u062e\u064a\u0631\u060c \u064a\u0631\u0628\u0637 \u0627\u0644\u0642\u0644\u0648\u0628 across cultures and borders", "timeline2_desc": "\u0623\u0646 \u0623\u063a\u0646\u064a \u0641\u064a \u0645\u0643\u0627\u0646 \u0635\u063a\u064a\u0631 \u0648\u0645\u0644\u064a\u0621 \u0628\u0627\u0644\u0637\u0627\u0642\u0629\u060c \u062d\u064a\u062b \u0623\u0631\u0649 \u0627\u0644\u062f\u0645\u0648\u0639 \u0641\u064a \u0639\u064a\u0648\u0646 \u0627\u0644\u0645\u0633\u062a\u0645\u0639\u064a\u0646\n\u0623\u0646 \u0623\u062a\u0644\u0642\u0649 \u0631\u0633\u0627\u0644\u0629 \u0645\u0646 \u0634\u062e\u0635 \u064a\u0642\u0648\u0644 \u0644\u064a: \"\u0623\u0646\u0634\u0648\u062f\u0643 \u0645\u0646\u0639\u062a\u0646\u064a \u0645\u0646 \u0627\u0644\u064a\u0623\u0633\"\n\u0623\u0646 \u0623\u063a\u0646\u064a \u0641\u064a \u0634\u0627\u0631\u0639 \u0639\u0634\u0648\u0627\u0626\u064a \u0648\u0623\u0631\u0649 \u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u064a\u0628\u062a\u0633\u0645\u0648\u0646 \u0648\u064a\u0631\u0642\u0635\u0648\u0646 \u0628\u0643\u0644\u0645\u0627\u062a\u064a\n\n", "timeline2_title": "\u0627\u0644\u0648\u0635\u0648\u0644 \u0625\u0644\u0649 \u0627\u0644\u0642\u0644\u0648\u0628 \u0642\u0628\u0644 \u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u0623\u0646 \u0623\u0643\u0648\u0646 \u0635\u0648\u062a\u0627\u064b \u064a\u0644\u0627\u0645\u0633 \u0627\u0644\u0631\u0648\u062d", "timeline3_desc": "\u0623\u0646 \u0623\u063a\u0646\u064a \u0639\u0646\u062f \u063a\u0631\u0648\u0628 \u0627\u0644\u0634\u0645\u0633 \u0639\u0644\u0649 \u0634\u0627\u0637\u0626 \u0642\u0631\u064a\u0629 \u0646\u0627\u0626\u064a\u0629\n\u0623\u0646 \u0623\u062a\u0639\u0644\u0645 \u0623\u063a\u0646\u064a\u0629 \u0634\u0639\u0628\u064a\u0629 \u0645\u0646 \u0643\u0644 \u0628\u0644\u062f \u0623\u0632\u0648\u0631\u0647 \u0648\u0623\u062f\u0645\u062c\u0647\u0627 \u0641\u064a \u0641\u0646\u064a\n\u0623\u0646 \u0623\u0644\u062a\u0642\u064a \u0628\u0643\u0628\u0627\u0631 \u0627\u0644\u0633\u0646 \u0648\u0623\u0633\u062c\u0644 \u0642\u0635\u0635\u0647\u0645 \u0648\u0623\u062d\u0648\u0644\u0647\u0627 \u0625\u0644\u0649 \u0643\u0644\u0645\u0627\u062a \u0623\u063a\u0627\u0646\u064a\n\n", "timeline3_title": "\u0631\u062d\u0644\u062a\u064a \u0647\u064a \u0642\u0635\u062a\u064a \u0623\u0646 \u0623\u062a\u0631\u0643 \u0623\u062b\u0631\u0627\u064b \u062c\u0645\u064a\u0644\u0627\u064b \u062d\u064a\u062b\u0645\u0627 \u0645\u0631\u0631\u062a", "timeline4_desc": "\u0623\u0646 \u0623\u063a\u0646\u064a \u0628\u062f\u0648\u0646 \u0645\u064a\u0643\u0631\u0648\u0641\u0648\u0646 \u0641\u064a \u062c\u0628\u0644 \u0639\u0627\u0644\u064d \u062d\u064a\u062b \u0627\u0644\u0635\u062f\u0649 \u0647\u0648 \u0631\u0641\u064a\u0642\u064a \u0627\u0644\u0648\u062d\u064a\u062f\n\u0623\u0646 \u0623\u0633\u062c\u0644 \u0623\u0646\u0634\u0648\u062f\u0629 \u0648\u0623\u0646\u0627 \u062c\u0627\u0644\u0633 \u062a\u062d\u062a \u0634\u062c\u0631\u0629 \u0632\u064a\u062a\u0648\u0646 \u0639\u0645\u0631\u0647\u0627 \u0645\u0626\u0627\u062a \u0627\u0644\u0633\u0646\u064a\u0646\n\u0623\u0646 \u0623\u062a\u0631\u0643 \u0646\u0641\u0633\u064a \u0644\u0644\u0651\u062d\u0638\u0629 \u0648\u0623\u063a\u0646\u064a \u0645\u0646 \u0627\u0644\u0642\u0644\u0628 \u062f\u0648\u0646 \u062a\u062e\u0637\u064a\u0637 \u0645\u0633\u0628\u0642\n\n", "timeline4_title": "\u0627\u0644\u0641\u0646 \u0647\u0648 \u062d\u064a\u0627\u062a\u064a  \u0623\u0646 \u0623\u0639\u064a\u0634 \u0627\u0644\u0641\u0646 \u0628\u062d\u0642\u064a\u0642\u062a\u0647", "timeline5_desc": "\u0623\u0646 \u064a\u063a\u0646\u064a \u0637\u0641\u0644 \u0643\u0644\u0645\u0627\u062a\u064a \u0648\u0647\u0648 \u064a\u0644\u0639\u0628 \u0641\u064a \u0627\u0644\u062d\u062f\u064a\u0642\u0629\n\u0623\u0646 \u0623\u0633\u0645\u0639 \u063a\u0631\u064a\u0628\u0627\u064b \u064a\u0647\u0645\u0633 \u0628\u0643\u0644\u0645\u0627\u062a \u0623\u0646\u0634\u0648\u062f\u062a\u064a \u0641\u064a \u0645\u0643\u0627\u0646 \u0639\u0627\u0645\n\u0623\u0646 \u0623\u0643\u0648\u0646 \u0633\u0628\u0628\u0627\u064b \u0641\u064a \u0644\u0645 \u0634\u0645\u0644 \u0639\u0627\u0626\u0644\u0629 \u0623\u0648 \u0625\u0635\u0644\u0627\u062d \u0639\u0644\u0627\u0642\u0629 through my music\n\n", "timeline5_title": "\u0623\u0646 \u064a\u0628\u0642\u0649 \u0635\u0648\u062a\u064a \u0641\u064a \u0627\u0644\u0630\u0627\u0643\u0631\u0629 \u0623\u0646 \u0623\u0643\u0648\u0646 \u0630\u0643\u0631\u0649 \u062c\u0645\u064a\u0644\u0629 \u0641\u064a \u0642\u0644\u0648\u0628 \u0627\u0644\u0646\u0627\u0633", "timeline6_desc": "", "timeline6_title": "", "timeline7_desc": "", "timeline7_title": "", "timeline8_desc": "", "timeline8_title": "", "timeline9_desc": "", "timeline9_title": "", "total_card_subtitle": "مشترك ومتابع", "total_card_title": "\u0627\u0644\u0627\u062c\u0645\u0627\u0644\u064a\u0627\u062a", "whatsapp_desc": "\u0644\u0644\u062a\u0648\u0627\u0635\u0644 \u0648\u0627\u0644\u062d\u062c\u0632 \u0648\u0627\u0644\u0627\u0633\u062a\u0641\u0633\u0627\u0631", "x_desc": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f / \u0641\u0646\u0627\u0646 \u0645\u0648\u0633\u064a\u0642\u064a \u270c\ufe0f\ud83d\udc9b", "x_desc2": "", "x_desc3": "", "yt_main_desc": "\u0627\u0644\u0642\u0646\u0627\u0629 \u0627\u0644\u0631\u0633\u0645\u064a\u0629 \u0644\u0644\u0641\u0646\u0627\u0646 \u0639\u0645\u0631 \u062e\u0627\u0644\u062f\u060c\n\u064a\u0633\u0639\u062f\u0646\u064a \u0627\u0634\u062a\u0631\u0627\u0643\u0643\u0645 \u0641\u064a \u0627\u0644\u0642\u0646\u0627\u0629", "yt_main_desc2": "", "yt_main_desc3": "", "yt_vlogs_desc": "", "yt_vlogs_desc2": "", "yt_vlogs_desc3": ""}, "de": {"about_p": "\u201eOmar Khaled ist nicht nur ein gew\u00f6hnlicher S\u00e4nger, sondern er ist ein Reisender mit einer Stimme, die eine Botschaft tr\u00e4gt. Er durchstreift jahrelang durch die Welt, nicht auf der Suche nach Ruhm, sondern in einem Bestreben hinter den Herzen, die nach Frieden suchen. Durch seine Worte, die die Seele ber\u00fchren, ber\u00fchren die Seele und seine Melodien, die Hoffnung senden.", "about_pic_alt": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "about_quote": "\"Ich bin nicht nur ein Sprachbesitzer ... Ich bin der Besitzer einer Nachricht. Eine Nachricht, die nach Herzen sucht, die unter dem Gewicht des Lebens st\u00f6hnen, also fl\u00fcstere ich ihr, dass Hoffnung existiert", "contact_button_call": "Verbinden", "contact_button_whatsapp": "\u0622 .\u0648\u0627\u0631\u06cc", "contact_card_title": "Kommunikation", "contact_desc": "", "digital_presence_section_title": "Digitale Pr\u00e4senz", "email_card_title": "E-Mail", "email_desc": "", "footer_bio": "", "footer_contact_prefix": "", "footer_copyright": "[2026] Omar Khaled. Alle Rechte vorbehalten.", "footer_tagline": "Omar Khaled Omar Khaled S\u00e4nger Mughni Komponist Musiker Er hebt seine Stimme mit gutem Umfang auf der ganzen Welt", "hero_cta_button_text": "finde es heraus", "hero_description": "Sprachnachricht und Biegung einer Einladung. Ich reise dort, wo er das Wort Wahrheit braucht, und die Lieder leiteten Herzen. Mein Fl\u00fcstern ist eine Antwort auf die Frage der Seele, und mein Ziel ist es, ein Grund f\u00fcr die Ausstrahlung der Seele zu sein.", "hero_main_title": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "hero_subtitle": "Summicatic Mughni Composer Music -K\u00fcnstler Er hebt seine Stimme mit Guten auf der ganzen Welt", "logo_text": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "nav_about": "Um", "nav_contact": "Kommunikation", "nav_digital_presence": "Digitale Pr\u00e4senz", "nav_journey": "", "page_title": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "platform_facebook": "Facebook", "platform_instagram": "Instagram", "platform_snapchat": "Snapchat", "platform_threads": "Thrids", "platform_tiktok": "tiktok", "platform_twitter": "Twitter (x)", "platform_whatsapp": "", "platform_youtube": "YouTube -Kanal", "platform_youtube_vlogs": "", "social_section_title": "Folgen Sie dem K\u00fcnstler", "stat1_label": "Beobachtungen", "stat2_label": "Abonnenten", "stat3_label": "Vidahat", "stat4_label": "", "stat_followers": "Anh\u00e4nger", "stat_likes": "Wunder", "stat_subscribers": "Teilnehmer", "stat_videos": "Video", "stat_views": "zu sehen", "support_card_button": "Zur Unterst\u00fctzung", "support_card_title": "Zur Unterst\u00fctzung", "support_desc": "", "timeline1_desc": "", "timeline1_title": "", "timeline2_desc": "An einem kleinen Ort voller Energie zu singen, an dem ich Tr\u00e4nen in den Augen der Zuh\u00f6rer sehe\nUm eine Nachricht von jemandem zu erhalten, der mir sagt: \"Ihre Aufregung hat mich daran gehindert, verzweifelt zu werden.\"\nIch singe auf einer zuf\u00e4lligen Stra\u00dfe und sehe Kinder l\u00e4cheln und mit meinen Worten tanzen", "timeline2_title": "Erreichen der Herzen vor den Zahlen, um eine Stimme zu sein, die die Seele ber\u00fchrt", "timeline3_desc": "Bei Sonnenuntergang am Ufer eines abgelegenen Dorfes singen\nUm ein beliebtes Lied aus jedem Land zu lernen, das ich besuche und in meine Kunst integriere\nUm \u00e4ltere Menschen zu treffen, ihre Geschichten aufzunehmen und sie in die Texte von Songs zu verwandeln", "timeline3_title": "Meine Reise ist meine Geschichte, um einen sch\u00f6nen Einfluss zu haben, wo immer ich vorbeikomme", "timeline4_desc": "Ich singe ohne ein Mikrofon in einem hohen Berg, in dem Echo mein einziger Begleiter ist\nUm ein Lied zu registrieren, w\u00e4hrend ich unter hundertj\u00e4hriger Olivenbaum sitze\nMich f\u00fcr den Moment zu verlassen und ohne vorherige Planung aus dem Herzen zu singen", "timeline4_title": "Kunst ist mein Leben, um in der Realit\u00e4t in der Kunst zu leben", "timeline5_desc": "Das Kind singt meine Worte, die im Garten spielen\nEin Fremder zu h\u00f6ren, der mit den Worten meines Gesangs an einem \u00f6ffentlichen Ort fl\u00fcstert\nEin Grund sein, eine Familie wieder zu vereinen oder die durch meine Musik zu reformieren", "timeline5_title": "Dass meine Stimme in der Erinnerung bleibt, um eine sch\u00f6ne Erinnerung in den Herzen der Menschen zu sein", "timeline6_desc": "", "timeline6_title": "", "timeline7_desc": "", "timeline7_title": "", "timeline8_desc": "", "timeline8_title": "", "timeline9_desc": "", "timeline9_title": "", "total_card_subtitle": "Nachteile", "total_card_title": "Nachteile", "whatsapp_desc": "Kommunizieren, reservieren und erkundigen"}, "en": {"about_p": "\u201cOmar Khaled is not just an ordinary singer, but he is a traveler with a voice that carries a message. He roams the world for years, not in search of fame, but in an endeavor behind the hearts looking for peace. Through his words that touch the soul and his melodies that send hope, he tries to remind us all that goodness is still present in this world, and that purposeful art can be a bridge that links cultures and souls. Everywhere. \"", "about_pic_alt": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "about_quote": "\"I am not just a voice owner ... I am the owner of a message. A message looking for hearts that groan under the weight of life, so I whisper to her that hope exists", "contact_button_call": "Connect", "contact_button_whatsapp": "\u0622 .\u0648\u0627\u0631\u06cc", "contact_card_title": "communication", "contact_desc": "", "digital_presence_section_title": "Digital presence", "email_card_title": "e-mail", "email_desc": "", "footer_bio": "", "footer_contact_prefix": "", "footer_copyright": "[2026] Omar Khaled. All rights reserved.", "footer_tagline": "Omar Khaled Omar khaled vocalist Mughni Composer Music artist He raises his voice with good around the world", "hero_cta_button_text": "find out", "hero_description": "Voice message, and bending an invitation. I travel where he needs the word truth, and the songs guided hearts. My whisper is an answer to the soul\u0027s question, and my goal is to be a reason for the radiance of the soul.", "hero_main_title": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "hero_subtitle": "Summatically Mughni Composer Music artist He raises his voice with good around the world", "logo_text": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "nav_about": "About", "nav_contact": "communication", "nav_digital_presence": "Digital presence", "nav_journey": "", "page_title": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "platform_facebook": "Facebook", "platform_instagram": "Instagram", "platform_snapchat": "Snapchat", "platform_threads": "Thrids", "platform_tiktok": "tiktok", "platform_twitter": "Twitter (x)", "platform_whatsapp": "", "platform_youtube": "YouTube channel", "platform_youtube_vlogs": "", "social_section_title": "Follow the artist", "stat1_label": "Observations", "stat2_label": "Subscribers", "stat3_label": "Vidahat", "stat4_label": "", "stat_followers": "Follower", "stat_likes": "wonder", "stat_subscribers": "subscriber", "stat_videos": "video", "stat_views": "to watch", "support_card_button": "For support", "support_card_title": "For support", "support_desc": "", "timeline1_desc": "", "timeline1_title": "", "timeline2_desc": "To sing in a small place full of energy, where I see tears in the eyes of the listeners\nTo receive a message from someone who tells me: \"Your excitement prevented me from despair.\"\nI sing on a random street and see children smile and dance with my words", "timeline2_title": "Reaching the hearts before the numbers to be a voice that touches the soul", "timeline3_desc": "To sing at sunset on the shore of a remote village\nTo learn a popular song from every country I visit and integrate into my art\nTo meet the elderly, record their stories, and turn them into the lyrics of songs", "timeline3_title": "My journey is my story to have a beautiful impact wherever I pass", "timeline4_desc": "I sing without a microphone in a high mountain where echo is my only companion\nTo register a song while I am sitting under a hundred -year -old olive tree\nTo leave myself for the moment and sing from the heart without prior planning", "timeline4_title": "Art is my life to live in art in reality", "timeline5_desc": "The child sings my words playing in the garden\nTo hear a stranger whispering with the words of my chant in a public place\nTo be a reason to reunite a family or reform the Through My Music", "timeline5_title": "That my voice remains in the memory to be a beautiful memory in the hearts of people", "timeline6_desc": "", "timeline6_title": "", "timeline7_desc": "", "timeline7_title": "", "timeline8_desc": "", "timeline8_title": "", "timeline9_desc": "", "timeline9_title": "", "total_card_subtitle": "Disadvantages", "total_card_title": "Disadvantages", "whatsapp_desc": "To communicate, reserve and inquire"}, "nl": {"about_p": "\u201cOmar Khaled is niet alleen een gewone zanger, maar hij is een reiziger met een stem die een boodschap draagt. Hij dwingt jarenlang de wereld, niet op zoek naar roem, maar in een poging achter de harten te zoeken naar vrede. Door zijn woorden die de ziel en zijn melodie\u00ebn aanraken, kan hij nog steeds aanwezig zijn.", "about_pic_alt": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "about_quote": "\"Ik ben niet alleen een stemeigenaar ... Ik ben de eigenaar van een bericht. Een bericht op zoek naar harten die kreunen onder het gewicht van het leven, dus ik fluister tegen haar dat hoop bestaat", "contact_button_call": "Verbinden", "contact_button_whatsapp": "\u0622 .\u0648\u0627\u0631\u06cc", "contact_card_title": "mededeling", "contact_desc": "", "digital_presence_section_title": "Digitale aanwezigheid", "email_card_title": "e-mail", "email_desc": "", "footer_bio": "", "footer_contact_prefix": "", "footer_copyright": "[2026] Omar Khaled. Alle rechten voorbehouden.", "footer_tagline": "Omar Khaled Omar Khaled zanger Mughni Composer Music Artist Hij heft zijn stem op met goed over de hele wereld", "hero_cta_button_text": "achterhalen", "hero_description": "Spraakbericht en een uitnodiging buigen. Ik reis waar hij het woord waarheid nodig heeft, en de liedjes begeleidden harten. Mijn fluistering is een antwoord op de vraag van de ziel, en mijn doel is om een \u200b\u200breden te zijn voor de uitstraling van de ziel.", "hero_main_title": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "hero_subtitle": "Summatiek Mughni Composer Music Artist Hij heft zijn stem op met goed over de hele wereld", "logo_text": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "nav_about": "Over", "nav_contact": "mededeling", "nav_digital_presence": "Digitale aanwezigheid", "nav_journey": "", "page_title": "\u0639\u0645\u0631 \u062e\u0627\u0644\u062f | Omar Khaled", "platform_facebook": "Facebook", "platform_instagram": "Instagram", "platform_snapchat": "Snapchat", "platform_threads": "Thrids", "platform_tiktok": "tiktok", "platform_twitter": "Twitter (x)", "platform_whatsapp": "", "platform_youtube": "YouTube -kanaal", "platform_youtube_vlogs": "", "social_section_title": "Volg de kunstenaar", "stat1_label": "Waarnemingen", "stat2_label": "Abonnees", "stat3_label": "Vidahat", "stat4_label": "", "stat_followers": "Volgeling", "stat_likes": "wonder", "stat_subscribers": "abonnee", "stat_videos": "video", "stat_views": "om te kijken", "support_card_button": "Voor ondersteuning", "support_card_title": "Voor ondersteuning", "support_desc": "", "timeline1_desc": "", "timeline1_title": "", "timeline2_desc": "Om op een kleine plek vol energie te zingen, waar ik tranen zie in de ogen van de luisteraars\nOm een \u200b\u200bbericht te ontvangen van iemand die me vertelt: \"Uw opwinding heeft me niet kunnen wanhopen.\"\nIk zing op een willekeurige straat en zie kinderen glimlachen en dansen met mijn woorden", "timeline2_title": "Het bereiken van de harten voordat de cijfers een stem zijn die de ziel raakt", "timeline3_desc": "Om te zingen bij zonsondergang aan de kust van een afgelegen dorp\nOm een \u200b\u200bpopulair nummer te leren uit elk land dat ik bezoek en integreer in mijn kunst\nOm ouderen te ontmoeten, hun verhalen op te nemen en ze in de teksten van liedjes te veranderen", "timeline3_title": "Mijn reis is mijn verhaal om een \u200b\u200bprachtige impact te hebben waar ik ook slaag", "timeline4_desc": "Ik zing zonder een microfoon in een hoge berg waar echo mijn enige metgezel is\nOm een \u200b\u200bnummer te registreren terwijl ik onder honderd jaar lang olijfboom zit\nOm mezelf op dit moment te verlaten en uit het hart te zingen zonder voorafgaande planning", "timeline4_title": "Kunst is mijn leven om in de realiteit in kunst te leven", "timeline5_desc": "Het kind zingt mijn woorden die in de tuin spelen\nOm een \u200b\u200bvreemdeling te horen fluisteren met de woorden van mijn gezang op een openbare plek\nOm een \u200b\u200breden te zijn om een \u200b\u200bgezin te herenigen of de door mijn muziek te hervormen", "timeline5_title": "Dat mijn stem in de herinnering blijft om een \u200b\u200bmooie herinnering te zijn in de harten van mensen", "timeline6_desc": "", "timeline6_title": "", "timeline7_desc": "", "timeline7_title": "", "timeline8_desc": "", "timeline8_title": "", "timeline9_desc": "", "timeline9_title": "", "total_card_subtitle": "Nadelen", "total_card_title": "Nadelen", "whatsapp_desc": "Om te communiceren, te reserveren en te informeren"}}; -->
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.querySelector('.navbar');
+            const languageSwitcher = document.querySelector('.language-dropdown');
+            const elementsToTranslate = document.querySelectorAll('[data-key]');
+            const themeSwitcherBtn = document.querySelector('.theme-switcher-btn');
+            const body = document.body;
+
+            // --- THEME SWITCHER LOGIC ---
+            const themeKey = 'theme-preference';
+            
+            const updateThemeIcon = (theme) => {
+                const icon = themeSwitcherBtn.querySelector('i');
+                icon.className = 'fas'; // Reset classes
+                icon.classList.add(theme === 'light-theme' ? 'fa-moon' : 'fa-sun');
+            };
+
+            themeSwitcherBtn.addEventListener('click', () => {
+                body.classList.toggle('light-theme');
+                const newTheme = body.classList.contains('light-theme') ? 'light-theme' : 'dark-theme';
+                localStorage.setItem(themeKey, newTheme);
+                updateThemeIcon(newTheme);
+            });
+
+            const savedTheme = localStorage.getItem(themeKey) || 'dark-theme';
+            if (savedTheme === 'light-theme') body.classList.add('light-theme');
+            updateThemeIcon(savedTheme);
+
+            // --- NAVBAR SCROLL EFFECT ---
+            window.addEventListener('scroll', () => {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+            });
+            
+            // --- LANGUAGE SWITCHER LOGIC ---
+<!--  -->
+
+            // --- COUNTER ANIMATION ---
+            const animateCounter = (el) => {
+                const targetText = el.getAttribute('data-target') || "0";
+                const target = +targetText.replaceAll(',', '');
+
+                if (isNaN(target) || el.dataset.animated) return;
+                el.dataset.animated = true;
+                const duration = 2000;
+                let startTime = null;
+
+                const animate = (timestamp) => {
+                    if (!startTime) startTime = timestamp;
+                    const progress = timestamp - startTime;
+                    const currentNum = Math.min(Math.floor((progress / duration) * target), target);
+                    el.innerText = currentNum.toLocaleString();
+                    if (progress < duration) {
+                        requestAnimationFrame(animate);
+                    } else {
+                         el.innerText = target.toLocaleString(); 
+                    }
+                };
+                requestAnimationFrame(animate);
+            };
+            
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.counter, .stat-number');
+                        counters.forEach(counter => animateCounter(counter));
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.journey-stats-section, #digital-presence').forEach(section => {
+                observer.observe(section);
+            });
+        });
+		
+            // ===== كود أزرار التمرير للأعلى والأسفل =====
+            
+            // الحصول على العناصر
+            var scrollContainer = document.getElementById("scroll-container");
+            var scrollDownButton = document.getElementById("scrollDownBtn");
+            
+            // عند تمرير المستخدم للصفحة
+            window.onscroll = function() {
+                // تحديد المسافة التي تم تمريرها
+                let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+                
+                // تحديد ارتفاع الصفحة بالكامل
+                let scrollHeight = document.documentElement.scrollHeight;
+                
+                // تحديد ارتفاع الجزء المرئي من الصفحة
+                let clientHeight = document.documentElement.clientHeight;
+            
+                // إظهار أو إخفاء الحاوية الرئيسية
+                if (scrollPosition > 100) {
+                    scrollContainer.style.display = "flex";
+                } else {
+                    scrollContainer.style.display = "none";
+                }
+            
+                // إخفاء زر النزول للأسفل عند الوصول لنهاية الصفحة
+                // نضيف هامش صغير (مثلاً 5 بكسل) للتأكد من عملها بشكل صحيح
+                if (scrollPosition + clientHeight >= scrollHeight - 5) {
+                    scrollDownButton.style.display = "none";
+                } else {
+                    scrollDownButton.style.display = "flex"; // أعد إظهاره إذا لم نكن في النهاية
+                }
+            };
+            
+            // دالة الانتقال إلى الأعلى
+            function topFunction() {
+              window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+            
+            // دالة الانتقال إلى الأسفل
+            function bottomFunction() {
+              window.scrollTo({top: document.documentElement.scrollHeight, behavior: 'smooth'});
+            }		
+		
+    </script>
+</body>
+</html>
